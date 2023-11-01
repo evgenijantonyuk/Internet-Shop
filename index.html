@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru" class="page" xmlns="http://www.w3.org/1999/html">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet shop</title>
+  <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/main.css">
+
+  <script defer src="./js/renderProducts.js"></script>
+  <script defer src="./js/calcCartPrice.js"></script>
+  <script defer src="./js/toggleCartStatus.js"></script>
+  <script defer src="./js/counter-02.js"></script>
+  <script defer src="./js/cart-02.js"></script>
+  <script defer src="./js/simpleBar.js"></script>
+
+  <script defer src="libs/inputmask.min.js"></script>
+  <script defer src="libs/just-validate3.3.3.min.js"></script>
+  <script defer src="js/validationMask.js"></script>
+</head>
+
+<body>
+<header class="header">
+  <div class="container text-center">
+    <img class="logo" src="img/logo/logo1.png" width="100" alt="ЮСБС лого">
+    <p class="logo-text">Ваш Логотип</p>
+  </div>
+</header>
+
+
+  <!--  <div class="header__cart cart active" tabindex="0">-->
+  <!--    <nav class="nav">-->
+  <!--      <ul class="nav-list">-->
+  <!--        <li class="nav__item about">О нас</li>-->
+  <!--        <li class="nav__item about">Сотрудничество</li>-->
+
+  <!--        <li>-->
+  <!--          <div class="cart__text">-->
+  <!--            Корзина-->
+  <!--          </div>-->
+  <!--        </li>-->
+
+  <!--        <span class="cart__quantity">0</span>-->
+  <!--      </ul>-->
+  <!--    </nav>-->
+
+  <!--  </div>-->
+  <!--  <div class="cart-content">-->
+  <!--    <ul class="cart-content__list" data-simplebar>-->
+  <!--      <li class="cart-content__item">-->
+  <!--        <article class="cart-content__product cart-product">-->
+  <!--          <img src="img/images/apple.jpeg" alt="Яблоки" class="cart-product__img">-->
+  <!--          <div class="cart-product__text">-->
+  <!--            <h3 class="cart-product__title">Малина</h3>-->
+  <!--            <span class="cart-product__price">300 ₽</span>-->
+  <!--          </div>-->
+  <!--          <button class="cart-product__delete" aria-label="Удалить товар"></button>-->
+  <!--        </article>-->
+  <!--      </li>-->
+  <!--      <li class="cart-content__item">-->
+  <!--        <article class="cart-content__product cart-product">-->
+  <!--          <img src="img/images/apple.jpeg" alt="Яблоки" class="cart-product__img">-->
+  <!--          <div class="cart-product__text">-->
+  <!--            <h3 class="cart-product__title">Малина</h3>-->
+  <!--            <span class="cart-product__price">300 ₽</span>-->
+  <!--          </div>-->
+  <!--          <button class="cart-product__delete" aria-label="Удалить товар"></button>-->
+  <!--        </article>-->
+  <!--      </li>-->
+  <!--      <li class="cart-content__item">-->
+  <!--        <article class="cart-content__product cart-product">-->
+  <!--          <img src="img/images/apple.jpeg" alt="Яблоки" class="cart-product__img">-->
+  <!--          <div class="cart-product__text">-->
+  <!--            <h3 class="cart-product__title">Малина</h3>-->
+  <!--            <span class="cart-product__price">300 ₽</span>-->
+  <!--          </div>-->
+  <!--          <button class="cart-product__delete" aria-label="Удалить товар"></button>-->
+  <!--        </article>-->
+  <!--      </li>-->
+  <!--    </ul>-->
+  <!--    <div class="cart-content__button">-->
+  <!--      <div class="cart-content__fullprice">-->
+  <!--        <span>Итого:</span>-->
+  <!--        <span class="fullprice">300</span>-->
+  <!--      </div>-->
+  <!--      <button class="cart-content__btn btn">Перейти в корзину</button>-->
+  <!--    </div>-->
+  <!--  </div>-->
+  <!--</header>-->
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="hero-title">
+          <div class="site-title">Каталог товаров</div>
+          <p class="lead">Товары которые вы сможете приобрести в нашем магазине</p>
+        </div>
+
+        <!-- Товары -->
+        <div class="col-md-8">
+          <div class="row" id="products-container">
+          </div>
+        </div>
+
+        <!-- Корзина -->
+        <div class="col-md-4 basket">
+
+          <!-- Корзина -->
+          <div class="card mb-4">
+            <div class="card-body">
+              <h5 class="card-title">Ваш заказ</h5>
+
+              <div data-cart-empty class="alert alert-secondary" role="alert">
+                Корзина пуста
+              </div>
+
+              <!-- cart-wrapper -->
+              <div class="cart-wrapper">
+              </div>
+
+            </div>
+          </div>
+          <!-- Стоимость заказа -->
+          <div>
+            <div class="card cart-total">
+              <p data-cart-delivery class="none"></p>
+              <p><span class="h5">Итого:</span>
+                <span class="total-price">0</span>
+                <span class="rouble">₽</span></p>
+            </div>
+
+            <!--   Оформить заказ-->
+            <h3 id="order-form" class="title title--main">Оформить заказ</h3>
+            <div class="divider"></div>
+            <form action="#" class="form" method="POST" enctype="multipart/form-data">
+              <label class="form__label">
+                <input class="input input-name" type="text" data-validate-field="name" name="Имя"
+                       placeholder="Введите имя">
+              </label>
+              <label class="form__label">
+                <input class="input input-mail" type="email" data-validate-field="email" name="Email"
+                       placeholder="Введите email">
+              </label>
+              <label class="form__label">
+                <input class="input input-tel" type="tel" data-validate-field="tel" name="Телефон"
+                       placeholder="Введите телефон">
+              </label>
+              <button class="button">Отправить</button>
+            </form>
+          </div>
+        </div>
+  </main>
+
+
+  <footer class="footer">
+    <div>
+
+    </div>
+  </footer>
+</body>
+</html>
