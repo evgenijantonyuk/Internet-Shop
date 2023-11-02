@@ -20,9 +20,9 @@ function renderProducts(productsArray) {
 							<img class="product-img" src="img/images/${item.imgSrc}" alt="">
 							<div class="card-body text-center">
 								<h4 class="item-title">${item.title}</h4>
-								
+
 								<p class="item-desc">${item.itemsDesc}</p>
-								
+
 								<p><small data-items-in-box class="text-muted">${item.itemsInBox} шт.</small></p>
 
 								<div class="details-wrapper">

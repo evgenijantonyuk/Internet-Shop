@@ -7,7 +7,7 @@ window.addEventListener('click', function (event) {
 	if (event.target.hasAttribute('data-cart')) {
 		// Находим карточку с товаром, внутри котрой был совершен клик
 		const card = event.target.closest('.card');
-		
+
 		// Собираем данные с этого товара и записываем их в единый объект productInfo
 		const productInfo = {
 			id: card.dataset.id,
@@ -17,7 +17,7 @@ window.addEventListener('click', function (event) {
 			price: card.querySelector('.price__currency').innerText,
 			counter: card.querySelector('[data-counter]').innerText,
 		};
-		
+
 		// Собранные данные подставим в шаблон для товара в корзине
 		const cartItemHTML = `<div class="cart-item" data-id="${productInfo.id}">
 								<div class="cart-item__top">
@@ -42,7 +42,7 @@ window.addEventListener('click', function (event) {
 									</div>
 								</div>
 							</div>`;
-		
+
 		// Отобразим товар в корзине
 		cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
 	}
